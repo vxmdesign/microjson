@@ -1,0 +1,6 @@
+*.hh
+*.cc
+*.o
+*~
+threadhammer
+jsontest

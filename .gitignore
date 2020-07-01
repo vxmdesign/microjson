@@ -1,6 +1,9 @@
+*.hpp
 *.hh
 *.cc
 *.o
 *~
 threadhammer
 jsontest
+JsonParse.cpp
+JsonScanner.cpp

@@ -1,4 +1,4 @@
-SRCS= JsonDriver.cpp main.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp
+SRCS= JsonDriver.cpp main.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 LYOBJS=JsonParser.o JsonScanner.o
 

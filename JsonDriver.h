@@ -15,17 +15,14 @@ namespace JSON{
   public:
     JsonDriver();
     virtual ~JsonDriver();
-    int parse(std::string &pInput);
+    JsonRoot * parse(std::string &pInput);
     void pushObject();
     void pushArray();
     int insert(JsonObjEntry *pEntry);
     int insert(BaseJsonNode *pNode);
     JsonArray* popArray();
     JsonObject* popObject();
-    JsonRoot *getRoot();
   private:
-    JSON::JsonParser *mParser;
-    JSON::JsonScanner *mScanner;
     JsonRoot *mRoot;
     BaseJsonNode *mCurrent;
   };

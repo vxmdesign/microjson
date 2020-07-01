@@ -9,6 +9,7 @@
 class JsonObject: public BaseJsonList{
  public:
   JsonObject(BaseJsonNode *pNode);
+  ~JsonObject();
   JsonNodeType getType();
   std::string serialize();
   unsigned int count();
@@ -17,6 +18,7 @@ class JsonObject: public BaseJsonList{
   BaseJsonNode *get(std::string &pKey);
   void addEntry(JsonObjEntry *pEntry);
  private:
+  bool nodeEqual(BaseJsonNode *pNode);
   std::vector<JsonObjEntry*> mList;    
 };
 

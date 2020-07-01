@@ -7,7 +7,9 @@ class JsonNull: public BaseJsonNode{
  public:
   JsonNull();
   JsonNodeType getType();
-  std::string serialize();  
+  std::string serialize();
+ private:
+  bool nodeEqual(BaseJsonNode *pNode);
 };
 
 #endif

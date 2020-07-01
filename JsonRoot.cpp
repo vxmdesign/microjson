@@ -4,6 +4,12 @@ JsonRoot::JsonRoot(){
   mNode = NULL; 
 }
 
+JsonRoot::~JsonRoot(){
+  if(mNode != NULL){
+    delete mNode;
+  }
+}
+
 JsonNodeType JsonRoot::getType(){
   return JSON_ROOT;
 }
@@ -23,4 +29,6 @@ BaseJsonNode* JsonRoot::getNode(){
   return mNode;
 }
 
-
+bool JsonRoot::nodeEqual(BaseJsonNode *pNode){
+  return mNode->equals(pNode);
+}

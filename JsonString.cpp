@@ -25,3 +25,8 @@ std::string JsonString::value(){
   return mValue;
 }
 
+bool JsonString::nodeEqual(BaseJsonNode *pNode){
+  JsonString *tmp;
+  tmp = (JsonString*)pNode;
+  return mValue == tmp->mValue;
+}

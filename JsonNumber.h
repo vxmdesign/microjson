@@ -11,6 +11,7 @@ class JsonNumber: public BaseJsonNode{
   std::string serialize();
   double value();
  private:
+  bool nodeEqual(BaseJsonNode *pNode);
   double mValue;
 };
 

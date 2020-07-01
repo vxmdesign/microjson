@@ -18,3 +18,8 @@ double JsonNumber::value(){
   return mValue;
 }
 
+bool JsonNumber::nodeEqual(BaseJsonNode *pNode){
+  JsonNumber *tmp;
+  tmp = (JsonNumber*)pNode;
+  return mValue == tmp->mValue;
+}

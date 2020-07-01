@@ -16,12 +16,13 @@ int main(int argc, char **argv){
   int fd;
   string inp;
   JSON::JsonDriver *jd;
+  JsonRoot *jr;
   struct stat bfs;
   if(argc == 1){
     inp = string(buf);
     jd = new JSON::JsonDriver();
-    jd->parse(inp);
-    inp = jd->getRoot()->serialize();
+    jr = jd->parse(inp);
+    inp = jr->serialize();
     printf("Result: %s\n", inp.c_str());
   }else{
     fd = open(argv[1], O_RDONLY);

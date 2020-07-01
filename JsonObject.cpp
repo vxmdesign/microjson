@@ -4,6 +4,14 @@ JsonObject::JsonObject(BaseJsonNode *pNode): BaseJsonList(pNode){
   mList.clear();
 }
 
+JsonObject::~JsonObject(){
+  unsigned int c;
+  for(c = 0; c < mList.size(); c++){
+    delete mList[c];
+  }
+  mList.clear();
+}
+
 JsonNodeType JsonObject::getType(){
   return JSON_OBJECT;
 }
@@ -52,4 +60,23 @@ std::string JsonObject::serialize(){
   }
   ret += "}";
   return ret;
+}
+
+bool JsonObject::nodeEqual(BaseJsonNode *pNode){
+  JsonObject *tmp;
+  unsigned int c;
+  BaseJsonNode *val;
+  std::string key;
+  tmp = (JsonObject*)pNode;
+  if(mList.size() != tmp->mList.size()){
+    return false;
+  }
+  for(c = 0; c < mList.size(); c++){
+    key = getKey(c)->value();
+    val = tmp->get(key);
+    if(val->equals(getIndex(c))== false){
+      return false;
+    }
+  }
+  return true;
 }

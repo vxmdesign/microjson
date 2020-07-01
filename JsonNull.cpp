@@ -10,4 +10,7 @@ std::string JsonNull::serialize(){
   return std::string("null");
 }
 
-				
+bool JsonNull::nodeEqual(BaseJsonNode *pNode){
+  return true;
+}
+

@@ -11,6 +11,7 @@ class JsonString: public BaseJsonNode{
   std::string serialize();
   std::string value();
  private:
+  bool nodeEqual(BaseJsonNode *pNode);
   std::string mValue;
 };
 

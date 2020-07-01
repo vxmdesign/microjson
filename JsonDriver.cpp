@@ -1,26 +1,30 @@
 #include "JsonDriver.h"
 
 JSON::JsonDriver::JsonDriver(){
-  mParser = NULL;
-  mScanner = NULL;
-  mRoot = new JsonRoot();
-  mCurrent = mRoot;
+  mRoot = NULL;
+  mCurrent = NULL;
 }
 
 JSON::JsonDriver::~JsonDriver(){
-  delete(mScanner);
-  mScanner = NULL;
-  delete(mParser);
-  mParser = NULL;
 }
 
-int JSON::JsonDriver::parse(std::string &pInput){
+JsonRoot* JSON::JsonDriver::parse(std::string &pInput){
+  JSON::JsonScanner *scanner;
+  JSON::JsonParser *parser;
+  int ret;
+  mRoot = new JsonRoot();
+  mCurrent = mRoot;  
   std::istringstream sin(pInput);
-  delete(mScanner);
-  mScanner = new JSON::JsonScanner(&sin);
-  delete(mParser);
-  mParser = new JSON::JsonParser(mScanner, this);
-  return mParser->parse();
+  scanner = new JSON::JsonScanner(&sin);
+  parser = new JSON::JsonParser(scanner, this);  
+  ret = parser->parse();
+  delete scanner;
+  delete parser;
+  if(ret != 0){
+    delete mRoot;
+    return NULL;
+  }
+  return mRoot;
 }
 
 void JSON::JsonDriver::pushObject(){
@@ -84,6 +88,3 @@ int JSON::JsonDriver::insert(BaseJsonNode *pNode){
   return 0;
 }
 
-JsonRoot *JSON::JsonDriver::getRoot(){
-  return mRoot;
-}

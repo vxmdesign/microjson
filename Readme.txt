@@ -30,6 +30,11 @@ The scanner/parser was batched together from other examples around the internet.
 
 If you want to use that Json infrastructure go ahead, and if you want to modify it should be pretty straightforward.
 
+One extra note:
+Bison has changed the format for defining the class
+ %define parser_class_name {JsonParser}
+ This has been deprecated, but the new style doesn't work on every one of my test systems, so between not working on all systems or a warning on some, I choose to have all systems work.
+ 
 -cjwfirmware
 
 

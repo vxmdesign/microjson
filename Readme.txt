@@ -34,7 +34,9 @@ One extra note:
 Bison has changed the format for defining the class
  %define parser_class_name {JsonParser}
  This has been deprecated, but the new style doesn't work on every one of my test systems, so between not working on all systems or a warning on some, I choose to have all systems work.
- 
+
+This was tested on linux systems ubuntu 14-20.
+
 -cjwfirmware
 
 

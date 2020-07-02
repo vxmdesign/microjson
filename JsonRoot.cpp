@@ -30,5 +30,7 @@ BaseJsonNode* JsonRoot::getNode(){
 }
 
 bool JsonRoot::nodeEqual(BaseJsonNode *pNode){
-  return mNode->equals(pNode);
+  JsonRoot *tmp;
+  tmp = (JsonRoot*)pNode;
+  return mNode->equals(tmp->mNode);
 }

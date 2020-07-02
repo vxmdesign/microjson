@@ -1,13 +1,13 @@
-SRCS= JsonDriver.cpp main.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp
+SRCS= JsonDriver.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp ThreadParseTest.cpp threadhammer.cpp 
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 LYOBJS=JsonParser.o JsonScanner.o
 
 
 
-all: jsontest
+all: threadhammer
 
-jsontest: $(LYOBJS) $(OBJS)
-	g++ -g -Wall -o $@ $^
+threadhammer: $(LYOBJS) $(OBJS)
+	g++ -g -Wall -o $@ $^ -lpthread
 
 JsonParser.cpp: json.yy
 	bison  -o$@ $^
@@ -32,4 +32,4 @@ clean:
 	rm -f *.hh
 	rm -f *.hpp
 	rm -f *.output
-	rm -f jsontest
+	rm -f threadhammer

@@ -5,7 +5,7 @@
 #include "ThreadParseTest.h"
 
 void singleTest(){
-  const char *buf = "[ \"a1\", \"a2\", [\"b1\", \"b2\", \"b3\"], \"a3\"]";
+  const char *buf = "[ \"a1\", \"a2\", [\"b1\", 10, 10.5], \"a3\"]";
   JSON::JsonDriver *jd;
   std::string inp;
   JsonRoot *jr;

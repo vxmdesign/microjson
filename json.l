@@ -36,6 +36,7 @@ EXP ([Ee][-+]?[0-9]+)
 "null" { return JSON::JsonParser::token::VNULL; } 
 [ \t\r\n]+ { } 
 \"[^"]*\" {  yylval->build<std::string>(yytext); return JSON::JsonParser::token::STRING; } 
+[0-9]+ { yylval->build<int>(atoi(yytext)); return JSON::JsonParser::token::INTEGER; } 
 [0-9]+\.?[0-9]*{EXP}? { yylval->build<double>(atof(yytext)); return JSON::JsonParser::token::DECIMAL ; } 
 
 %%

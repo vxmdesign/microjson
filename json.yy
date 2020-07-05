@@ -39,6 +39,7 @@
 %token VTRUE VFALSE VNULL
 %token <std::string> STRING;
 %token <double> DECIMAL;
+%token <int> INTEGER;
 %type <BaseJsonNode *> value
 %type <JsonObjEntry*> member
 %type <JsonObject*> object
@@ -55,7 +56,8 @@ json:
 value: object     { $$ = $1; } 
 	| array   { $$ = $1; } 
 	| STRING  { $$ = new JsonString($1); }
-	| DECIMAL { $$ = new JsonNumber($1); } 
+	| DECIMAL { $$ = new JsonNumber($1); }
+	| INTEGER { $$ = new JsonNumber($1); }
 	| VTRUE   { $$ = new JsonBool(true); } 
 	| VFALSE  { $$ = new JsonBool(false); }
 	| VNULL   { $$ = new JsonNull(); }

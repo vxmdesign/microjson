@@ -2,6 +2,12 @@
 
 JsonNumber::JsonNumber(double pValue){
   mValue = pValue;
+  mInt = false;
+}
+
+JsonNumber::JsonNumber(int pValue){
+  mIValue = pValue;
+  mInt = true;
 }
 
 JsonNodeType JsonNumber::getType(){
@@ -10,12 +16,30 @@ JsonNodeType JsonNumber::getType(){
 
 std::string JsonNumber::serialize(){
   char buf[20];
-  sprintf(buf, "%f", mValue);
+  if(mInt == false){
+    sprintf(buf, "%f", mValue);
+    return std::string(buf);
+  }
+  sprintf(buf, "%d", mIValue);
   return std::string(buf);
 }
 
 double JsonNumber::value(){
-  return mValue;
+  if(mInt == false){
+    return mValue;
+  }
+  return (double)mIValue;
+}
+
+int JsonNumber::ivalue(){
+  if(mInt == true){
+    return mIValue;
+  }
+  return (int)mValue;
+}
+
+bool JsonNumber::isInt(){
+  return mInt;
 }
 
 bool JsonNumber::nodeEqual(BaseJsonNode *pNode){

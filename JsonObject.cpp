@@ -47,7 +47,25 @@ BaseJsonNode *JsonObject::get(std::string &pKey){
 void JsonObject::addEntry(JsonObjEntry *pEntry){
   mList.push_back(pEntry);
 }
-  
+
+void JsonObject::addEntry(std::string &pKey, std::string &pValue){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), new JsonString(pValue));
+  addEntry(joe);		      
+}
+
+void JsonObject::addEntry(std::string &pKey, double pValue){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), new JsonNumber(pValue));
+  addEntry(joe);
+}
+
+void JsonObject::addEntry(std::string &pKey, bool pValue){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), new JsonBool(pValue));
+  addEntry(joe);
+}
+
 std::string JsonObject::serialize(){
   std::string ret;
   unsigned int c;

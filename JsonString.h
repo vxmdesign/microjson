@@ -7,6 +7,7 @@
 class JsonString: public BaseJsonNode{
  public:
   JsonString(std::string &pValue);
+  JsonString(const char *pValue);
   JsonNodeType getType();
   std::string serialize();
   std::string value();

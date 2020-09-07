@@ -18,10 +18,12 @@ class JsonObject: public BaseJsonList{
   BaseJsonNode *getIndex(unsigned int pIndex);
   JsonString *getKey(unsigned int pIndex);
   BaseJsonNode *get(std::string &pKey);
+  BaseJsonNode *get(const char *pKey);
   void addEntry(JsonObjEntry *pEntry);
-  void addEntry(std::string &pKey, std::string &pValue);
-  void addEntry(std::string &pKey, double pValue);
-  void addEntry(std::string &pKey, bool pValue);
+  void addEntry(const char *pKey, std::string &pValue);
+  void addEntry(const char *pKey, double pValue);
+  void addEntry(const char *pKey, bool pValue);
+  void addEntry(const char *pKey, int pValue);
  private:
   bool nodeEqual(BaseJsonNode *pNode);
   std::vector<JsonObjEntry*> mList;    

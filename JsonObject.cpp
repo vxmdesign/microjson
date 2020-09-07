@@ -44,25 +44,37 @@ BaseJsonNode *JsonObject::get(std::string &pKey){
   return NULL;
 }
 
+BaseJsonNode *JsonObject::get(const char *pKey){
+  std::string tmp;
+  tmp = pKey;
+  return get(tmp);
+}
+
 void JsonObject::addEntry(JsonObjEntry *pEntry){
   mList.push_back(pEntry);
 }
 
-void JsonObject::addEntry(std::string &pKey, std::string &pValue){
+void JsonObject::addEntry(const char *pKey, std::string &pValue){
   JsonObjEntry *joe;
   joe = new JsonObjEntry(new JsonString(pKey), new JsonString(pValue));
   addEntry(joe);		      
 }
 
-void JsonObject::addEntry(std::string &pKey, double pValue){
+void JsonObject::addEntry(const char *pKey, double pValue){
   JsonObjEntry *joe;
   joe = new JsonObjEntry(new JsonString(pKey), new JsonNumber(pValue));
   addEntry(joe);
 }
 
-void JsonObject::addEntry(std::string &pKey, bool pValue){
+void JsonObject::addEntry(const char *pKey, bool pValue){
   JsonObjEntry *joe;
   joe = new JsonObjEntry(new JsonString(pKey), new JsonBool(pValue));
+  addEntry(joe);
+}
+
+void JsonObject::addEntry(const char *pKey, int pValue){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), new JsonNumber(pValue));
   addEntry(joe);
 }
 

@@ -10,7 +10,20 @@ JsonString::JsonString(std::string &pValue){
   }else{
     mValue = pValue;
   }
-  
+}
+
+JsonString::JsonString(const char *pValue){
+  unsigned int c;
+  std::string value;
+  value = std::string(pValue);
+  if(value[0] == '\"'){
+    mValue = "";
+    for(c = 1; c < value.size()-1; c++){
+      mValue += value[c];
+    }
+  }else{
+    mValue = value;
+  }  
 }
 
 JsonNodeType JsonString::getType(){

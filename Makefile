@@ -7,7 +7,7 @@ LYOBJS=JsonParser.o JsonScanner.o
 all: threadhammer
 
 threadhammer: $(LYOBJS) $(OBJS)
-	g++ -g -Wall -o $@ $^ -lpthread
+	g++ -g -O3 -Wall -o $@ $^ -lpthread
 
 JsonParser.cpp: json.yy
 	bison  -o$@ $^
@@ -16,13 +16,13 @@ JsonScanner.cpp: json.l
 	flex --outfile=$@ $^
 
 JsonScanner.o: JsonScanner.cpp
-	g++ -g -Wall  -c $^
+	g++ -g -O3 -Wall  -c $^
 
 JsonParser.o: JsonParser.cpp
-	g++ -g -Wall  -c $^
+	g++ -g -O3 -Wall  -c $^
 
 %.o: %.cpp
-	g++ -g -Wall -Werror -c $^
+	g++ -g -O3 -Wall -Werror -c $^
 
 
 clean:

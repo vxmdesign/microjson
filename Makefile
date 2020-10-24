@@ -1,13 +1,22 @@
-SRCS= JsonDriver.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp 
+SRCS= JsonDriver.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp
+INSTALL_HEADERS= BaseJsonList.h BaseJsonNode.h JsonArray.h JsonBool.h JsonDriver.h Json.h JsonNull.h JsonNumber.h JsonObject.h JsonObjEntry.h JsonRoot.h JsonScanner.h JsonString.h
+
 TEST_SRCS= ThreadParseTest.cpp threadhammer.cpp
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 TEST_OBJS=$(patsubst %.cpp,%.o,$(TEST_SRCS))
 LYOBJS=JsonParser.o JsonScanner.o
 
 CFLAGS= -g -O3 -Wall -fPIC
-
+PREFIX ?= .
 
 all: threadhammer libmicrojson.so
+
+install: libmicrojson.so
+	mkdir -p $(PREFIX)/include
+	mkdir -p $(PREFIX)/lib
+	install -m 644 $(INSTALL_HEADERS) $(PREFIX)/include
+	install -m 755 libmicrojson.so $(PREFIX)/lib
+
 
 threadhammer: $(LYOBJS) $(OBJS) $(TEST_OBJS)
 	g++ $(CFLAGS) -o $@ $^ -lpthread
@@ -39,3 +48,5 @@ clean:
 	rm -f *.hpp
 	rm -f *.output
 	rm -f threadhammer
+
+

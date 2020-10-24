@@ -8,6 +8,7 @@
 #include "JsonNumber.h"
 #include "JsonBool.h"
 #include "JsonNull.h"
+#include "JsonDriver.h"
 
 #endif
 

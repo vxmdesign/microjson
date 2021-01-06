@@ -1,7 +1,7 @@
 SRCS= JsonDriver.cpp JsonString.cpp JsonNumber.cpp JsonBool.cpp JsonNull.cpp JsonArray.cpp JsonObject.cpp BaseJsonList.cpp JsonObjEntry.cpp JsonRoot.cpp BaseJsonNode.cpp
 INSTALL_HEADERS= BaseJsonList.h BaseJsonNode.h JsonArray.h JsonBool.h JsonDriver.h uJson.h JsonNull.h JsonNumber.h JsonObject.h JsonObjEntry.h JsonRoot.h JsonScanner.h JsonString.h JsonParser.hpp location.hh stack.hh position.hh
 
-TEST_SRCS= ThreadParseTest.cpp testchk.cpp
+TEST_SRCS= ThreadParseTest.cpp threadhammer.cpp
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 TEST_OBJS=$(patsubst %.cpp,%.o,$(TEST_SRCS))
 LYOBJS=JsonParser.o JsonScanner.o

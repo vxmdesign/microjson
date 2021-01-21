@@ -8,6 +8,7 @@ class JsonBool: public BaseJsonNode{
   JsonBool(bool pValue);
   JsonNodeType getType();
   std::string serialize();
+  void setValue(bool pValue);
   bool value();  
  private:
   bool nodeEqual(BaseJsonNode *pNode);

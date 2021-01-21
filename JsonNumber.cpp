@@ -31,6 +31,16 @@ double JsonNumber::value(){
   return (double)mIValue;
 }
 
+void JsonNumber::setValue(int pValue){
+  mInt = true;
+  mIValue = pValue;
+}
+
+void JsonNumber::setValue(double pValue){
+  mInt = false;
+  mValue = pValue;
+}
+
 int JsonNumber::ivalue(){
   if(mInt == true){
     return mIValue;

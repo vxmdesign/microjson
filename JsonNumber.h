@@ -10,6 +10,8 @@ class JsonNumber: public BaseJsonNode{
   JsonNumber(int pValue);
   JsonNodeType getType();
   std::string serialize();
+  void setValue(int pValue);
+  void setValue(double pValue);
   double value();
   int ivalue();
   bool isInt();

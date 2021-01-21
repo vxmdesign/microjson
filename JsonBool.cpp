@@ -19,6 +19,10 @@ bool JsonBool::value(){
   return mValue;
 }
 
+void JsonBool::setValue(bool pValue){
+  mValue = pValue;
+}
+
 bool JsonBool::nodeEqual(BaseJsonNode *pNode){
   JsonBool *tmp;
   tmp = (JsonBool*)pNode;

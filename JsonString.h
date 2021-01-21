@@ -10,6 +10,7 @@ class JsonString: public BaseJsonNode{
   JsonString(const char *pValue);
   JsonNodeType getType();
   std::string serialize();
+  void setValue(std::string pValue);
   std::string value();
  private:
   bool nodeEqual(BaseJsonNode *pNode);

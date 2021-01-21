@@ -38,6 +38,10 @@ std::string JsonString::value(){
   return mValue;
 }
 
+void JsonString::setValue(std::string pValue){
+  mValue = pValue;
+}
+
 bool JsonString::nodeEqual(BaseJsonNode *pNode){
   JsonString *tmp;
   tmp = (JsonString*)pNode;

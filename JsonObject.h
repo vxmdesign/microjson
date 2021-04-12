@@ -21,6 +21,7 @@ class JsonObject: public BaseJsonList{
   BaseJsonNode *get(const char *pKey);
   void addEntry(JsonObjEntry *pEntry);
   void addEntry(const char *pKey, std::string &pValue);
+  void addEntry(const char *pKey, const char *pValue);
   void addEntry(const char *pKey, double pValue);
   void addEntry(const char *pKey, bool pValue);
   void addEntry(const char *pKey, int pValue);

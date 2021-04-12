@@ -60,6 +60,12 @@ void JsonObject::addEntry(const char *pKey, std::string &pValue){
   addEntry(joe);		      
 }
 
+void JsonObject::addEntry(const char *pKey, const char *pValue){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), new JsonString(pValue));
+  addEntry(joe);		      
+}
+
 void JsonObject::addEntry(const char *pKey, double pValue){
   JsonObjEntry *joe;
   joe = new JsonObjEntry(new JsonString(pKey), new JsonNumber(pValue));

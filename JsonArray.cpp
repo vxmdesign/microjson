@@ -35,14 +35,14 @@ unsigned int JsonArray::count(){
   return mList.size();
 }
 
-BaseJsonNode * JsonArray::getIndex(unsigned int pIndex){
+BaseJsonNode * JsonArray::get(unsigned int pIndex){
   if(pIndex >= mList.size()){
     return NULL;
   }
   return mList[pIndex];
 }
 
-void JsonArray::addNode(BaseJsonNode *pNode){
+void JsonArray::addEntry(BaseJsonNode *pNode){
   mList.push_back(pNode);
 }
 

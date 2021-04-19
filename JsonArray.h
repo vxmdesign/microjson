@@ -13,8 +13,8 @@ class JsonArray: public BaseJsonList{
   JsonNodeType getType();
   std::string serialize();
   unsigned int count();
-  BaseJsonNode *getIndex(unsigned int pIndex);
-  void addNode(BaseJsonNode *pNode);
+  BaseJsonNode *get(unsigned int pIndex);
+  void addEntry(BaseJsonNode *pNode);
  private:
   bool nodeEqual(BaseJsonNode *pNode);
   std::vector<BaseJsonNode*> mList;

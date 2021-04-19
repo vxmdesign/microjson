@@ -54,6 +54,12 @@ void JsonObject::addEntry(JsonObjEntry *pEntry){
   mList.push_back(pEntry);
 }
 
+void JsonObject::addEntry(const char *pKey, BaseJsonNode *pNode){
+  JsonObjEntry *joe;
+  joe = new JsonObjEntry(new JsonString(pKey), pNode);
+  addEntry(joe);
+}
+
 void JsonObject::addEntry(const char *pKey, std::string &pValue){
   JsonObjEntry *joe;
   joe = new JsonObjEntry(new JsonString(pKey), new JsonString(pValue));

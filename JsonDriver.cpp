@@ -84,7 +84,7 @@ int JSON::JsonDriver::insert(BaseJsonNode *pNode){
   if(mCurrent->getType() != JSON_ARRAY){
     return -1;
   }
-  ((JsonArray*)mCurrent)->addNode(pNode);
+  ((JsonArray*)mCurrent)->addEntry(pNode);
   return 0;
 }
 

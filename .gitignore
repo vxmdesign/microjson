@@ -8,3 +8,4 @@ jsontest
 JsonParser.cpp
 JsonScanner.cpp
 *.so
+*.a

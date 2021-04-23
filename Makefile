@@ -11,6 +11,8 @@ PREFIX ?= .
 
 all: threadhammer libmicrojson.so
 
+static: libmicrojson.a
+
 install: libmicrojson.so
 	mkdir -p $(PREFIX)/include
 	mkdir -p $(PREFIX)/lib
@@ -23,6 +25,9 @@ threadhammer: $(LYOBJS) $(OBJS) $(TEST_OBJS)
 
 libmicrojson.so: $(LYOBJS) $(OBJS)
 	g++ $(CFLAGS) -shared -o $@ $^
+
+libmicrojson.a: $(LYOBJS) $(OBJS)
+	ar rcs $@ $^
 
 JsonParser.cpp: json.yy
 	bison  -o$@ $^
